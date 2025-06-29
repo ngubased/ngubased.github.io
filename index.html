@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPMD Bank of Base</title>
+
+    <meta name="title" content="manage your finance with us">
+    <meta name="description"
+        content="JPMD Bank of Base dashboard. all in one. manage everything using over superfast web app for base.">
+    <meta name="keywords" content="JPMD Bank of Base,finance,dashboards,decentralized finance website">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="30 days">
+    <meta name="author" content="JPMD Bank of Base Dev NGU">
+    <meta name="theme-color" content="#4a56e2">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- stlyesheet -->
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-sha3@0.8.0/build/sha3.min.js"></script>
+    <link rel="icon" href="./logo.png" type="image/png" />
+
+</head>
+
+<body class="light">
+
+    <div class="container">
+
+        <nav class="sidebar" id="sidebar">
+
+            <!-- close btn for responsive sidebar -->
+            <button id="btn_close">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path
+                        d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z" />
+                </svg>
+            </button>
+            <br>
+            <div class="logo">
+                <img src="./logo.png" alt="">
+                <span>JPMD Bank of Base</span>
+            </div>
+
+            <!-- menubar -->
+            <div class="nav_links">
+
+                <a href="#" class="nav_link active" aria-label="overview">
+                    <div class="nav_link_icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path class="icon"
+                                d="M13 21V11h8v10h-8zM3 13V3h8v10H3zm6-2V5H5v6h4zM3 21v-6h8v6H3zm2-2h4v-2H5v2zm10 0h4v-6h-4v6zM13 3h8v6h-8V3zm2 2v2h4V5h-4z" />
+                        </svg>
+                    </div>
+
+                    <div class="nav_link_text">
+                        overview
+                    </div>
+                </a>
+            </div>
+
+            <!-- life cover advertisement section -->
+            <div class="life_cover_offer"
+                onclick="window.open('https://app.uniswap.org/swap?chain=base&inputCurrency=0x9C5Df71562afeFa6B4ffa0eF226C9758Dad31e09&outputCurrency=ETH', '_blank')">
+                <img src="./base.png" alt="" />
+                <div class="life_cover_text">
+                    <p class="title">JPMD Bank of Base!</p>
+                    <p class="desc">Hold at least <strong>1000 JPMD</strong> Bank of Base tokens and receive fully
+                        decentralized, automatic reflections directly to your wallet.</p>
+                </div>
+                <a href="#" aria-label="grab offer">buy now</a>
+            </div>
+
+            <!-- profile button -->
+            <div class="profile" onclick="window.open('https://t.me/JPMDBankofBaseBot', '_blank')">
+                <div class="img_with_name">
+                    <img src="botlogo.png" alt="">
+                    <div class="profile_text">
+                        <p class="name">Rewards Bot</p>
+                        <p class="occupation">Software</p>
+                    </div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z" />
+                    <path class="icon" d="M13.172 12l-4.95-4.95 1.414-1.414L16 12l-6.364 6.364-1.414-1.414z" />
+                </svg>
+            </div>
+
+        </nav>
+
+        <section class="main_content">
+
+            <div class="topbar">
+
+                <button id="menu_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path d="M3 4h18v2H3V4zm0 7h12v2H3v-2zm0 7h18v2H3v-2z" />
+                    </svg>
+                </button>
+                <div class="overview_text">
+                    <p class="title">Reflections Overview</p>
+                    <p class="desc">Hi JPMD Bank of Base Holder, welcome back!</p>
+                </div>
+
+                <div class="topbar_icons">
+                    <a href="https://t.me/JPmorganoffical" aria-label="search things" class="topbar_icon" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M9.036 16.569l.555-3.183 7.478-6.705c.33-.296-.075-.454-.512-.278L6.79 11.13l-3.09-.966c-.672-.21-.684-.672.14-.992l15.13-5.573c.633-.242 1.18.153.963 1.084l-2.6 12.251c-.18.819-.669 1.018-1.354.634l-3.742-2.755-1.803 1.73c-.23.223-.421.411-.865.411z"/>
+                          </svg>
+                          
+                    </a>
+
+                    <a href="https://x.com/JPMD_BankOfBase" aria-label="notification bell" class="topbar_icon" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path fill="none" d="M0 0h24v24H0z"/>
+                            <path d="M14.155 10.403L21.573 2h-1.931l-6.327 7.107L8.405 2H2l7.76 11.098L2 22h1.931l6.746-7.573L15.595 22H22l-7.845-11.597zM13.121 13.06l-.778-1.11-6.238-8.89h1.925l5.047 7.195.778 1.11 6.505 9.27h-1.925l-5.314-7.575z"/>
+                          </svg>
+                          
+                    </a>
+
+                    <a href="https://dexscreener.com/" aria-label="notification bell" class="topbar_icon" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <rect x="3" y="7" width="3" height="10" rx="1"/>
+                            <rect x="9" y="3" width="3" height="14" rx="1"/>
+                            <rect x="15" y="10" width="3" height="7" rx="1"/>
+                            <path d="M5 5v-2h1v2H5zm6-1v-2h1v2h-1zm6 4v-2h1v2h-1z" fill="#000" />
+                          </svg>  
+                    </a>
+
+                </div>
+            </div>
+
+            <section>
+
+                <main>
+                    <div class="overview_text">
+                        <p class="title">Reflections Overview</p>
+                        <p class="desc">Hi JPMD Bank of Base Holder, welcome back!</p>
+                    </div>
+
+                    <div class="bank_balance_card">
+                        <p>Total Paid Reflections</p>
+                        <p class="balance">$<font id="paidRewardsUSD">---</font></p>
+                        <div class="account_no">
+                            <span>JPMD Bank of Base Token: <span id="tokenca"
+                                    class="no">0x9C5Df71562afeFa6B4ffa0eF226C9758Dad31e09</span></span>
+                            <button id="copycatoken" class="view_account_no" aria-label="show_ac">
+                                <img src="./copybtn.png" alt="">
+                            </button>
+                        </div>
+                        <div class="account_no">
+                            <span>Reflection Token USDT: <span id="rewardca"
+                                    class="no">0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2</span></span>
+                            <button id="copycarewards" class="view_account_no" aria-label="show_ac">
+                                <img src="./copybtn.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="button_group">
+                        <button class="r_transaction" aria-label="show_transaction">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path d="M16 16v-4l5 5-5 5v-4H4v-2h12zM8 2v3.999L20 6v2H8v4L3 7l5-5z"
+                                    fill="rgba(255,255,255,1)" />
+                            </svg>
+                            <span>recent chain activity</span>
+                        </button>
+
+                        <button class="s_analysis" aria-label="show_analysis">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                <path fill="none" d="M0 0h24v24H0z" />
+                                <path class="icon"
+                                    d="M11 .543c.33-.029.663-.043 1-.043C18.351.5 23.5 5.649 23.5 12c0 .337-.014.67-.043 1h-1.506c-.502 5.053-4.766 9-9.951 9-5.523 0-10-4.477-10-10 0-5.185 3.947-9.449 9-9.95V.542zM11 13V4.062A8.001 8.001 0 0 0 12 20a8.001 8.001 0 0 0 7.938-7H11zm10.448-2A9.503 9.503 0 0 0 13 2.552V11h8.448z" />
+                            </svg>
+                            <span>reflections analysis</span>
+                        </button>
+
+                    </div>
+
+                    <div class="transaction_info">
+
+                        <div id="datetoday" class="transaction_date">
+                            ...
+                        </div>
+                        <div class="transaction_data">
+                            <div class="get_send_money">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path d="M21 7l-9-5-9 5v10l9 5 9-5z" fill="#4caf50" />
+                                        <text x="12" y="16" text-anchor="middle" font-size="10" font-family="Arial"
+                                            fill="#fff">$</text>
+                                    </svg>
+
+                                </span>
+                                <div class="trasaction_details">
+                                    <p class="transaction_metadata">Latest<span> Price</span></p>
+                                    <p>Main Pair</p>
+                                </div>
+                            </div>
+
+                            <p  class="transaction_value">$<font id="realtimeprice" >---</font></p>
+                        </div>
+
+                        <div class="transaction_data">
+                            <div class="get_send_money">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="none" stroke="#000" stroke-width="2" d="M4 9h14l-3-3m3 9H6l3 3" />
+                                    </svg>
+
+                                </span>
+                                <div class="trasaction_details">
+                                    <p class="transaction_metadata">24 Hour <span>Transactions</span></p>
+                                    <p>Main Pair</p>
+                                </div>
+                            </div>
+
+                            <p class="transaction_value"><font id="realtxns" >---</font> txns</p>
+                        </div>
+
+                        <div class="transaction_data">
+                            <div class="get_send_money">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                        <path fill="green" d="M8 17V7h2v10h3l-4 4-4-4z" />
+                                        <path fill="red" d="M16 7v10h-2V7h-3l4-4 4 4z" />
+                                    </svg>
+                                </span>
+                                <div class="trasaction_details">
+                                    <p class="transaction_metadata">24 Hour <span>Volume</span></p>
+                                    <p>Main Pair</p>
+                                </div>
+                            </div>
+
+                            <p class="transaction_value">$<font id="realvolume" >---</font></p>
+                        </div>
+
+                        <div class="transaction_data">
+                            <div class="get_send_money">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z" />
+                                        <path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z" fill="#24cca7" />
+                                    </svg>
+                                </span>
+                                <div class="trasaction_details">
+                                    <p class="transaction_metadata">Paid USDT <span> Rewards</span></p>
+                                    <p>Project reflections</p>
+                                </div>
+                            </div>
+
+                            <p class="transaction_value">$ <font id="estrewards" >---</font></p>
+                        </div>
+
+                    </div>
+
+                    <button class="show_more" aria-label="show_more">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path d="M12 13.172l4.95-4.95 1.414 1.414L12 16 5.636 9.636 7.05 8.222z" />
+                        </svg>
+                    </button>
+
+                </main>
+
+                <aside>
+
+                    <div class="transfer_money_section">
+                        <p class="title">Rewards Check</p>
+
+                        <form onsubmit="return mySubmitFunction(event)">
+                            <div class="phone_no_info">
+                                <input type="none" name="phone_no" id="public_wallet_address"
+                                    placeholder="wallet holding JPMD Bank of Base">
+                                <img src="./logo.jpg" alt="">
+                            </div>
+
+                            <div class="amount">
+                                <div>
+                                    <label for="dollar">$</label>
+                                    <view type="number" name="phone_no" id="rupees" placeholder="45.2">---</view>
+                                </div>
+                                <span>DOLLAR</span>
+                            </div>
+
+                            <input type="submit" value="Check Paid Rewards" id="checkButton"/>
+                        </form>
+                    </div>
+
+                    <div class="cards">
+                        <div class="title_with_button">
+                            <p class="title">tokenomics</p>
+                            <div class="sliber_controller">
+
+                                <div class="swipe_next">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z" />
+                                        <path
+                                            d="M12 2c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8zm0-9h4v2h-4v3l-4-4 4-4v3z" />
+                                    </svg>
+                                </div>
+
+                                <div class="swipe_previous">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z" />
+                                        <path
+                                            d="M12 11V8l4 4-4 4v-3H8v-2h4zm0-9c5.52 0 10 4.48 10 10s-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2zm0 18c4.42 0 8-3.58 8-8s-3.58-8-8-8-8 3.58-8 8 3.58 8 8 8z" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./supply.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./lp.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./tax.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./rewards.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./marketing.png" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="swiper-page"></div>
+                    </div>
+
+                </aside>
+
+            </section>
+        </section>
+    </div>
+
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            effect: "cards",
+            grabCursor: true,
+            navigation: {
+                nextEl: ".swipe_next",
+                prevEl: ".swipe_previous",
+            },
+            pagination: {
+                el: ".swiper-page",
+                clickable: true,
+            },
+        });
+    </script>
+
+    <!-- script file -->
+    <script src="./main.js"></script>
+    <script src="./rewards.js"></script>
+</body>
+
+</html>
