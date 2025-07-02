@@ -4,7 +4,18 @@ const contractAddressReal = "0x9C5Df71562afeFa6B4ffa0eF226C9758Dad31e09";
 // Minimal ABI just for the two functions you want
 const abi = [
     "function totalDistributed() view returns (uint256)",
-    "function getUnpaidEarnings(address shareholder) view returns (uint256)"
+    "function getUnpaidEarnings(address shareholder) view returns (uint256)",
+    {
+        name: "shares",
+        type: "function",
+        stateMutability: "view",
+        inputs: [{ name: "", type: "address" }],
+        outputs: [
+            { name: "amount", type: "uint256" },
+            { name: "totalExcluded", type: "uint256" },
+            { name: "totalRealised", type: "uint256" }
+        ]
+    }
 ];
 
 async function fetchTokenPairs() {
@@ -96,6 +107,7 @@ function keccak256(value) {
 
 document.getElementById('checkButton').addEventListener('click', async function () {
     const address = document.getElementById('public_wallet_address').value;
+    console.log("xdd")
     if (true) {
         try {
             console.log("HERE")
@@ -103,11 +115,12 @@ document.getElementById('checkButton').addEventListener('click', async function 
             const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
             // Create contract instance
             const contract = new ethers.Contract(contractAddress, abi, provider);
-            var totalDistributedBN = await contract.getUnpaidEarnings(address);
-            const totalDistributedEth = ethers.utils.formatUnits(totalDistributedBN, 6);
+            var totalDistributedBN = await contract.shares(address);
+            
+            const totalDistributedEth = ethers.utils.formatUnits(totalDistributedBN.totalRealised, 6);
             document.getElementById("rupees").innerText = Number(totalDistributedEth).toFixed(2);
         } catch (error) {
-            console.log("ERROR", error)
+            //console.log("ERROR", error)
         }
     }
     // Validate the address here

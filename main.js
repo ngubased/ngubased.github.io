@@ -27,7 +27,7 @@ document.getElementById("copycatoken").addEventListener("click", function () {
         span.textContent = TOKEN_CA;
     }, 2000);
     span.textContent = "Copied!";
-    navigator.clipboard.writeText().then(() => {
+    navigator.clipboard.writeText(TOKEN_CA).then(() => {
     }).catch(err => {
         console.error("Failed to copy jpmd bank of base button:", err);
     });
