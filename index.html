@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#02030a">
+    <meta name="description" content="Synergy — a tiered holder ecosystem. Three worlds, three holding tiers. Hold, phase up, unlock more.">
+    <title>Synergy — Tiered Holder Worlds</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='34' fill='%236effa0'/><ellipse cx='50' cy='50' rx='48' ry='12' fill='none' stroke='%23ffe054' stroke-width='6' transform='rotate(-18 50 50)'/></svg>">
+  <script type="module" crossorigin src="/assets/index-C1aR1kni.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-D9abKnqj.css">
+</head>
+<body>
+    <div id="canvas-container" aria-hidden="true"></div>
+
+    <header id="brand">
+        <span id="brand-mark"></span>
+        <div id="brand-copy">
+            <span id="brand-title">Synergy</span>
+            <span id="brand-subtitle">Tiered holder worlds</span>
+        </div>
+    </header>
+
+    <div id="top-controls">
+        <button id="about-toggle" class="glass-panel" type="button" aria-haspopup="dialog" aria-controls="about-overlay">
+            About
+        </button>
+        <label id="auto-control" class="glass-panel" title="Automatically visit the next tier">
+            <span>Auto</span>
+            <input id="auto-cycle" type="checkbox" checked>
+            <span id="auto-indicator" aria-hidden="true"></span>
+        </label>
+    </div>
+
+    <section id="planet-copy" aria-live="polite">
+        <div id="planet-kicker">Tier I &middot; 0.1% holdings</div>
+        <h1 id="planet-name">Veridia</h1>
+        <p id="planet-description">
+            The entry world &mdash; a jade ocean planet threaded with golden auroras. Hold 0.1% of supply to phase in.
+        </p>
+        <ul id="planet-perks"></ul>
+        <div id="copy-actions">
+            <a id="verify-button" href="#" target="_blank" rel="noopener noreferrer">
+                Verify holdings
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 17L17 7M9 7h8v8"/>
+                </svg>
+            </a>
+        </div>
+        <div id="transition-meter" aria-hidden="true">
+            <div id="transition-meter-fill"></div>
+        </div>
+    </section>
+
+    <nav id="planet-ui" class="glass-panel" aria-label="Holding tiers">
+        <button type="button" class="is-active" data-planet="0" aria-pressed="true">
+            <span class="tier-name">Veridia</span>
+            <span class="tier-holding">0.1%</span>
+        </button>
+        <button type="button" data-planet="1" aria-pressed="false">
+            <span class="tier-name">Voltara</span>
+            <span class="tier-holding">0.3%</span>
+        </button>
+        <button type="button" data-planet="2" aria-pressed="false">
+            <span class="tier-name">Aurelia</span>
+            <span class="tier-holding">0.5%</span>
+        </button>
+    </nav>
+
+    <div id="about-overlay" role="dialog" aria-modal="true" aria-labelledby="about-title" hidden>
+        <div id="about-card" class="glass-panel">
+            <button id="about-close" type="button" aria-label="Close">&times;</button>
+            <h2 id="about-title">What is Synergy?</h2>
+            <p>
+                Synergy is a tiered holder ecosystem. Your share of total supply places you on one
+                of three worlds &mdash; each a phase of the same system, each unlocking more than the last.
+            </p>
+            <p>
+                There is nothing to stake and nothing to lock. Hold the threshold, verify your wallet,
+                and your tier is live. Grow your position and you phase up automatically.
+            </p>
+            <ul id="about-tiers">
+                <li><b>Veridia</b><i>0.1%</i></li>
+                <li><b>Voltara</b><i>0.3%</i></li>
+                <li><b>Aurelia</b><i>0.5%</i></li>
+            </ul>
+            <p class="about-footnote">
+                Tiers are read directly from the chain &mdash; use <b>Verify holdings</b> to connect and confirm yours.
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
